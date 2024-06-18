@@ -28,11 +28,11 @@
         h1, h2 {
             color: #333;
         }
-        img {
-            max-width: 100%;
+        img,h3 {
+            width: 80%;
             height: auto;
             display: block;
-            margin: 10px 0;
+            margin: 10px auto;
         }
     </style>
 </head>
@@ -51,17 +51,18 @@
         </div>
         <div class="section">
             <h2>- Data Preprocessing</h2>
-        </div>
-
-        <h1>💡 Hypothesis & Testing</h1>
-        <div class="section">
-          <h2>1. LSTM이 더 긴 이미지 시퀀스를 입력으로 받을 때, 포즈 추정 성능이 향상될 것이다. </h2>
-          <img src="img/이.png" alt="가설 그림들">
-        </div>
-
-        <div class="section">
-          <h2>2. 00 Loss를 사용할 때, 포즈 추정 성능이 향상될 것이다. </h2>
-          <img src="img/이.png" alt="가설 그림들">
+            <img src="img/데이터전처리코드.png" alt="진행과정">
+            <div>
+                <h3>📌 포즈 데이터를 쿼터니언으로 변환</h3>
+                <p>- 포즈 데이터는 위치와 쿼터니언을 결합하여 나타냄</p>
+                <p>- 쿼터니언은 3D 회전을 나타내기 위해 사용되는 수학적 표현 방식으로, 4개의 값(w, x, y, z)으로 구성</p>
+            </div>
+            <div>
+                <h3>📌 이미지 데이터는 CSV 파일에서 카메라 매개변수(f, px, py)와 왜곡 계수(k1, k2, k3)를 불러와 이미지를 왜곡 보정하고 크기를 224로 조정한 후, 정규화된 numpy 배열로 변환</h3>
+            </div>
+            <img src="img/핵심코드리뷰1.png" alt="진행과정">
+            <!-- <img src="img/poseur.png" alt="진행과정"> -->
+            <img src="img/lstm모델.png" alt="진행과정">
         </div>
     </div>
     </section>
