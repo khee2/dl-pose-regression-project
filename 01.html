@@ -20,18 +20,56 @@
         }
         h1 {
             text-align: center;
+            color: #333;
         }
         p {
             line-height: 1.6;
+            color: #666;
+        }
+        .section {
+            margin-bottom: 40px;
+        }
+        .section h2 {
+            font-size: 1.5em;
+            margin-bottom: 10px;
+            color: #007BFF;
+        }
+        .section ul {
+            list-style-type: none;
+            padding: 0;
+        }
+        .section ul li {
+            background: #e9e9e9;
+            margin: 5px 0;
+            padding: 10px;
+            border-radius: 5px;
         }
     </style>
 </head>
 <body>
     <div class="container">
         <h1>PROJECT: CAMERA POSE REGRESSION 📌</h1>
-        <p>딥러닝을 사용하여 사진 촬영 시 카메라의 위치와 방향을 추정하는 것이 목표</p>
-        <p>르네상스 4층 건물 내부를 카메라로 촬영하여 이미지 데이터를 수집한 후</p>
-        <p>REALITY CAPTURE 프로그램을 통해 위치 및 방향 데이터 수집 및 라벨링 진행</p>
+
+        <div class="section">
+            <h2>주제</h2>
+            <p>CAMERA POSE REGRESSION</p>
+        </div>
+
+        <div class="section">
+            <h2>목적성</h2>
+            <p>카메라의 위치와 방향을 추정 ➡️ 사진 촬영 시 정확한 카메라 포즈를 인식하여 다양한 응용 프로그램에 활용 가능</p>
+        </div>
+
+        <div class="section">
+            <h2>진행 과정</h2>
+            <p>숙명여자대학교 르네상스 4층 건물 내부를 카메라로 촬영하여 이미지 데이터를 수집합니다. 그후 REALITY CAPTURE 프로그램을 통해 위치 및 방향 데이터를 수집합니다. 전체 진행 과정은 다음과 같습니다</p>
+            <ul>
+                <li>이미지 데이터, pose 데이터 수집</li>
+                <li>데이터셋 전처리</li>
+                <li>모델 학습</li>
+                <li>결과물 확인</li>
+            </ul>
+        </div>
     </div>
 </body>
 </html>
