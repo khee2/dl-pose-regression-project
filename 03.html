@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>PROJECT: CAMERA POSE REGRESSION</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            background-color: #f4f4f4;
+        }
+        .container {
+            max-width: 800px;
+            margin: 50px auto;
+            padding: 20px;
+            background-color: white;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+        }
+        h1, h2, h3 {
+            text-align: center;
+        }
+        p {
+            line-height: 1.6;
+        }
+        ul {
+            list-style-type: none;
+            padding: 0;
+        }
+        li {
+            margin: 10px 0;
+        }
+        .content-section {
+            margin-bottom: 30px;
+        }
+        .content-section:last-child {
+            margin-bottom: 0;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>PROJECT: CAMERA POSE REGRESSION 📌</h1>
+        <div class="content-section">
+            <h2>모델 설명</h2>
+            <h3>LSTM + ResNet-50 + Sequence</h3>
+            <p><strong>파이프라인:</strong> 입력 이미지 시퀀스는 ResNet-50을 통해 특징이 추출되고, 이 특징들은 LSTM 네트워크에 전달되어 시퀀스 데이터를 처리합니다. 최종적으로 위치와 방향을 예측하는 fully connected layer로 연결됩니다.</p>
+            <p><strong>아키텍처:</strong> ResNet-50은 깊은 CNN으로 이미지 특징을 추출하고, LSTM은 시퀀스 특징을 학습합니다. 최종 레이어는 위치와 쿼터니언(회전)을 예측합니다.</p>
+            
+            <h3>Poseur</h3>
+            <p><strong>파이프라인:</strong> Poseur 모델은 고유의 네트워크 아키텍처를 사용하여 입력 이미지로부터 직접 위치와 방향을 예측합니다.</p>
+            <p><strong>아키텍처:</strong> Poseur는 CNN 기반의 특징 추출 네트워크와 fully connected layer로 구성되어 있으며, 입력 이미지로부터 위치와 쿼터니언을 예측합니다.</p>
+        </div>
+    </div>
+</body>
+</html>
