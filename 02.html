@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Dataset - Pose Regression Report</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            line-height: 1.6;
+            margin: 0;
+            padding: 20px;
+            background-color: #f4f4f4;
+        }
+        header {
+            background: #333;
+            color: #fff;
+            padding: 10px 0;
+            text-align: center;
+        }
+        section {
+            background: #fff;
+            margin: 20px 0;
+            padding: 20px;
+            border-radius: 8px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+        }
+        h1, h2 {
+            color: #333;
+        }
+        img {
+            max-width: 100%;
+            height: auto;
+            display: block;
+            margin: 10px 0;
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <h1 style="color: white;">Dataset - Pose Regression Report</h1>
+    </header>
+    <section>
+        <h2>데이터셋 소개</h2>
+        <h3>이미지 데이터셋</h3>
+        <p>카메라로 촬영한 이미지 데이터</p>
+        <img src="img/ro1 frames.png" alt="이미지 데이터셋">
+
+        <h3>위치 및 방향 데이터셋</h3>
+        <p>RealityCapture를 사용하여 추출한 위치(x, y, alt)와 방향(heading, pitch, roll) 데이터</p>
+        <img src="img/group3_end.png" alt="위치 및 방향 데이터셋">
+
+        <h3>데이터 열 설명</h3>
+        <p>위 이미지의 데이터 열은 다음과 같습니다:</p>
+        <ul>
+            <li><strong>#name:</strong> 이미지 파일 이름</li>
+            <li><strong>x, y, z:</strong> 위치 좌표</li>
+            <li><strong>heading:</strong> 수평 방향 각도</li>
+            <li><strong>pitch:</strong> 수직 방향 각도</li>
+            <li><strong>roll:</strong> 기울기 각도</li>
+            <li><strong>f:</strong> 초점 거리</li>
+            <li><strong>px, py:</strong> 카메라 센서의 중심 좌표</li>
+            <li><strong>k1, k2, k3, k4:</strong> 렌즈 왜곡 계수</li>
+        </ul>
+    </section>
+</body>
+</html>
