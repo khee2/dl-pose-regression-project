@@ -52,125 +52,20 @@
         <div class="section">
             <h2>- Data Preprocessing</h2>
             <img src="img/데이터전처리코드.png" alt="진행과정">
-            <div>
-                <h3>📌 포즈 데이터를 쿼터니언으로 변환</h3>
-                <p>- 포즈 데이터는 위치와 쿼터니언을 결합하여 나타냄</p>
-                <p>- 쿼터니언은 3D 회전을 나타내기 위해 사용되는 수학적 표현 방식으로, 4개의 값(w, x, y, z)으로 구성</p>
-            </div>
-            <div>
-                <h3>📌 이미지 데이터는 CSV 파일에서 카메라 매개변수(f, px, py)와 왜곡 계수(k1, k2, k3)를 불러와 이미지를 왜곡 보정하고 크기를 224로 조정한 후, 정규화된 numpy 배열로 변환</h3>
-            </div>
+            <p>
+                <h3>
+                    📌포즈 데이터를 쿼터니언으로 변환
+                    <p>- 포즈 데이터는 위치와 쿼터니언을 결합하여 나타냄</p>
+                    <p>- 쿼터니언은 3D 회전을 나타내기 위해 사용되는 수학적 표현 방식으로, 4개의 값(w, x, y, z)으로 구성</p>
+                </h3>
+                <h3>
+                    📌이미지 데이터는 CSV 파일에서 카메라 매개변수(f, px, py)와 왜곡 계수(k1, k2, k3)를 불러와 이미지를 왜곡 보정하고 크기를 224로 조정한 후, 정규화된 numpy 배열로 변환
+                </h3>
             <img src="img/핵심코드리뷰1.png" alt="진행과정">
             <!-- <img src="img/poseur.png" alt="진행과정"> -->
             <img src="img/lstm모델.png" alt="진행과정">
         </div>
     </div>
     </section>
-</body>
-</html>
-# 이미지 전처리
-# 데이터 전처리 (핵심 코드 리뷰)
-# 가설 & 검증 형태로 
-<!DOCTYPE html>
-<html lang="ko">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>PROJECT: CAMERA POSE REGRESSION</title>
-    <style>
-        body {
-            font-family: Arial, sans-serif;
-            margin: 0;
-            padding: 0;
-            background-color: #f4f4f4;
-        }
-        .container {
-            max-width: 800px;
-            margin: 50px auto;
-            padding: 20px;
-            background-color: white;
-            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
-        }
-        h1 {
-            text-align: center;
-            color: #333;
-        }
-        p {
-            line-height: 1.6;
-            color: #666;
-        }
-        .section {
-            margin-bottom: 40px;
-        }
-        .section h2 {
-            font-size: 1.5em;
-            margin-bottom: 10px;
-            color: #004ba1;
-        }
-        .section h3 {
-            font-size: 1.2em;
-            margin-bottom: 10px;
-            color: #004ba1;
-        }
-        .section ul {
-            list-style-type: none;
-            padding: 0;
-        }
-        .section ul li {
-            background: #e9e9e9;
-            margin: 5px 0;
-            padding: 10px;
-            border-radius: 5px;
-        }
-        .img-container {
-            text-align: center;
-            margin: 20px 0;
-        }
-        .img-container img {
-            max-width: 100%;
-            height: auto;
-        }
-    </style>
-</head>
-<body>
-    <div class="container">
-        <h1>📌 CAMERA POSE REGRESSION</h1>
-
-        <div class="section">
-            <h2>가설 1.</h2>
-            <p>손실 함수로 Huber Loss를 사용하면 MSE 보다 안정적인 loss 그래프를 출력할 것이다.</p>
-            <p>sequence로 입력한 train data set에 존재할 outlier에 robust한 손실 함수 필요.</p>
-            <p>→ MSE와 MAE의 장점을 취합한 Huber Loss 사용</p>
-            
-            <h3>Huber Loss</h3>
-            <p>L1과 L2의 장점을 취하면서 단점을 보완하기 위해 제안된 것으로 모든 지점에서 미분이 가능하면서 이상치에 로버스트하다.</p>
-            <div class="img-container">
-                <img src="huber_loss.png" alt="Huber Loss">
-            </div>
-
-            <h3>Smooth L1 loss</h3>
-            <p>실제 모델에서는 Huber loss와 그래프 형태가 유사한 Smooth L1 loss를 사용하였다.</p>
-            <div class="img-container">
-                <img src="smooth_loss.png" alt="Smooth L1 Loss">
-            </div>
-
-            <h3>Huber loss와 Smooth L1 loss 비교</h3>
-            <div class="img-container">
-                <img src="huber_smooth.png" alt="Huber Loss vs Smooth L1 Loss">
-            </div>
-        </div>
-
-        <div class="section">
-            <h2>가설 2.</h2>
-            <p>PoseNet의 Euclidean Loss를 사용하면 Huber Loss 보다 loss 감소율이 높을 것이다.</p>
-            <p>6-DoF pose를 사용하여 regression을 진행하는 PoseNet은 위치 손실과 방향 손실을 합한 값을 loss function으로 사용한다.</p>
-            <p>→ camera pose regression과 변수 종류가 같으므로 성능 향상에 유용할 것.</p>
-            <div class="img-container">
-                <img src="euclidean_loss.png" alt="PoseNet Euclidean Loss">
-            </div>
-            <p>x는 위치 벡터, q는 quaternion 벡터에 대한 손실 값이다.</p>
-            <p>β는 위치 손실과 방향 손실에 대한 비중을 결정하는 가중치이다. 위치와 방향의 크기가 다르기 때문에 β를 적절히 조절하여 두 손실의 균형을 맞춘다.</p>
-        </div>
-    </div>
 </body>
 </html>
