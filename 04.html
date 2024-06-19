@@ -28,45 +28,55 @@
         h1, h2 {
             color: #333;
         }
-        img,h4 {
+        img {
             width: 80%;
             height: auto;
             display: block;
             margin: 10px auto;
         }
+        .pipeline {
+            width: 60% !important;
+        }
     </style>
 </head>
 <body>
     <header>
-        <h1 style="color: white;">Image Preprocessing and Hypothesis Testing</h1>
+        <h1 style="color: white;">Introduce Our Model</h1>
     </header>
     <section>
-      <div class="container">
-        <h1>💡 Process</h1>
+        <div class="container">
+            <h1>💡Models</h1>
+    
+            <div class="section">
+                <h2>Model Description</h2>
+                <img src="img/resnet18 소개.png" alt="Model Description">
+            </div>
+    
+            <div class="section">
+                <h2>Reason for Using the Model</h2>
+                <img src="img/9.png" alt="Model Description">
+            </div>
+    
+            <div class="section">
+                <h2>Model Pipeline</h2>
+                <img src="img/10.png" alt="Model Description">
+                <img src="img/11.png" alt="Model Description">
+                <img src="img/18파이프라인.png" alt="Model Pipeline" class="pipeline">
+            </div>
 
-        <div class="section">
-            <h2>- Image Preprocessing </h2>
-            <img src="img/이미지 전처리.png" alt="전처리">
-            <img src="img/리얼리티캡쳐1.png" alt="전처리">
-            <img src="img/이미지 전처리2.png" alt="전처리">
+            <h1>💡실험에 사용된 Models</h1>
+            <h2>ResNet-50 + LSTM Model</h2>
+            <img src="img/5.png" alt="Model Description">
+            <img src="img/6.png" alt="Model Description">
+            <img src="img/7.png" alt="Model Description">
+            <img src="img/8.png" alt="Model Description">
+            <img src="img/50파이프라인.png" alt="Model Pipeline" class="pipeline">
+            <h2>Poseur Model</h2>
+            <img src="img/poseur3.png" alt="poseur설명">
+
+            <h1>💡최종</h1>
+            <h2>ResNet-18 + Poseur + Huber Loss</h2>
         </div>
-        <div class="section">
-            <h2>- Data Preprocessing</h2>
-            <img src="img/데이터전처리코드.png" alt="진행과정">
-            <p>
-                <h4>
-                    📌포즈 데이터를 쿼터니언으로 변환
-                    <p>- 포즈 데이터는 위치와 쿼터니언을 결합하여 나타냄</p>
-                    <p>- 쿼터니언은 3D 회전을 나타내기 위해 사용되는 수학적 표현 방식으로, 4개의 값(w, x, y, z)으로 구성</p>
-                </h4>
-                <h4>
-                    📌이미지 데이터는 CSV 파일에서 카메라 매개변수(f, px, py)와 왜곡 계수(k1, k2, k3)를 불러와 이미지를 왜곡 보정하고 크기를 224로 조정한 후, 정규화된 numpy 배열로 변환
-                </h4>
-            <img src="img/핵심코드리뷰1.png" alt="진행과정">
-            <!-- <img src="img/poseur.png" alt="진행과정"> -->
-            <img src="img/lstm모델.png" alt="진행과정">
-        </div>
-    </div>
     </section>
 </body>
 </html>
